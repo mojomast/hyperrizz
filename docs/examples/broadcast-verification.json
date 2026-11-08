@@ -1,0 +1,23 @@
+{
+  "file": "broadcast-lab.mp4",
+  "sha256": "60b3d7dd3064990e15bdd7f8181bd12361736ba32f35d1fe3d44accc62d5a4cf",
+  "bytes": 3481480,
+  "videoCodec": "h264",
+  "width": 960,
+  "height": 540,
+  "fps": "60/1",
+  "frames": 960,
+  "videoDuration": 16.0,
+  "containerDuration": 16.0,
+  "expectedPictureDuration": 16.0,
+  "audioStreams": 1,
+  "loudness": {
+    "integratedLufs": -17.98,
+    "truePeakDbtp": -5.2,
+    "rangeLu": 9.9,
+    "scope": "first encoded audio stream"
+  },
+  "fullDecode": true,
+  "passed": true,
+  "errors": []
+}

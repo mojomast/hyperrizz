@@ -21,6 +21,7 @@ Requires Python 3.11+, Node 22+ and FFmpeg/ffprobe.
 ```sh
 python3 scripts/check-package.py
 python3 tests/test_verifier.py
+node --test tests/*.test.mjs
 ```
 
 For starter/runtime changes, copy `templates/starter/` outside the skill and run
@@ -28,6 +29,11 @@ its documented install, build, lint, check, seek-check, stills, render and verif
 workflow. Review the actual output. Keep browser-heavy jobs sequential and respect
 shared-host resource limits. Do not install dependencies or produce builds inside
 the installed skill.
+
+For broadcast-kit changes, materialize the advanced lab with
+`node scripts/create-broadcast-lab.mjs /new/project/path` and run its full workflow.
+Its shader/effect/replay checks complement the pure timing/rig tests; they are not
+replaced by the simple starter's calibration. Preserve `kits/broadcast/LICENSE`.
 
 ## Pull requests
 

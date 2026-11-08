@@ -165,6 +165,7 @@ constraints     motion grammar   picture + sound    actual encode   source + rep
 | [`art-direction.md`](references/art-direction.md) | Identity, editorial variety, typography and meaningful motion |
 | [`runtime.md`](references/runtime.md) | Frame sources, time semantics, determinism and resource limits |
 | [`media-audio.md`](references/media-audio.md) | Capture provenance, sharpness, musical phase and mastering |
+| [`advanced-broadcast.md`](references/advanced-broadcast.md) | Hermagotchi's shader pipeline, character rigs, replay, production slots and broadcast sound |
 | [`qa-delivery.md`](references/qa-delivery.md) | Evidence levels, encode checks, budgets, sharing and recovery |
 | [`production-lessons.md`](references/production-lessons.md) | Concrete lessons from all four films, including unfinished work |
 | [`sources.md`](references/sources.md) | Official references and version context |
@@ -172,6 +173,8 @@ constraints     motion grammar   picture + sound    actual encode   source + rep
 | [`REVIEW.md`](templates/REVIEW.md) | Measured delivery results and explicit review gaps |
 | [`STATUS.md`](templates/STATUS.md) | A durable checkpoint for interrupted work |
 | [`starter/`](templates/starter/) | Runnable scenes, build, seek tests, rendering and verification |
+| [`broadcast kit`](kits/broadcast/README.md) | Reusable WebGL2 treatment, native-grid sprites, frame cache, OSD and time maps |
+| [`broadcast lab`](templates/broadcast-lab/README.md) | A 16-second audiovisual example exercising the advanced techniques |
 
 References are loaded as needed; the agent does not need every supporting document
 in context at once. See the [production lessons](references/production-lessons.md)
@@ -243,6 +246,50 @@ silent proof and `--max-bytes` for a strict file budget. Failed assertions retur
 nonzero exit status. Verification establishes the encoded properties; it does not
 judge the film's taste, factual claims or perceived sound quality.
 
+## Go deeper: the broadcast lab
+
+[![The advanced broadcast lab: dressed pixel characters, CRT/VHS treatment and a closing title](docs/examples/broadcast-lab.png)](https://github.com/mojomast/hyperrizz/raw/refs/heads/main/docs/examples/broadcast-lab.mp4)
+
+**[Watch the 16-second advanced lab](https://github.com/mojomast/hyperrizz/raw/refs/heads/main/docs/examples/broadcast-lab.mp4)** ·
+[Scene contact sheet](docs/examples/broadcast-contact-sheet.jpg) ·
+[Test evidence](docs/BROADCAST_LAB.md)
+
+The advanced kit brings the complex machinery from **Hermagotchi Television** into
+Hyperrizz as reusable code and a runnable example:
+
+- **Full-frame WebGL2 CRT/VHS:** curvature, RGB bleed, highlight bloom, spatial
+  ghosting, scanlines, phosphor mask, tracking wobble, dropouts and rolling hum.
+- **Independent tuning and power-off controls:** seeded static, horizontal collapse,
+  a line/dot ending, and an actual clean bypass.
+- **Manifest-driven pixel rigs:** stepped source strips, frame anchor deltas,
+  per-character overrides, back/head/front layers and whole-rig mirroring.
+- **Quarter-speed replay:** cached video frames, separate source/output clocks,
+  live frame readouts and time-derived telestrator graphics.
+- **Broadcast composition and sound:** distinct channel genres, OSD, tickers,
+  original station tones, tuning cuts, bells and closing cues.
+
+Create it in a new directory outside the repository:
+
+```sh
+node scripts/create-broadcast-lab.mjs ../my-broadcast-lab
+cd ../my-broadcast-lab
+npm ci
+npm run build
+npm run lint
+npm run check
+npm run seek-check
+npm run stills
+npm run render
+npm run verify
+```
+
+The lab is **16 seconds at 960×540/60fps with sound**. It generates labelled synthetic
+fixtures rather than redistributing game art or implying real gameplay. The kit
+retains the original MIT attribution. Its advanced check covers reordered shader
+frames, clean/effect comparisons, replay timing, cache bounds and cancellation.
+See the [lab guide](templates/broadcast-lab/README.md),
+[kit API](kits/broadcast/README.md) and [production reference](references/advanced-broadcast.md).
+
 ## What is actually tested?
 
 The bundled starter has been built and rendered with **HyperFrames 0.9.23**:
@@ -258,6 +305,12 @@ browser/render smoke test is documented separately in [VALIDATION.md](VALIDATION
 along with its limitations and dependency-audit results. It is not claimed as a
 cross-platform or perceptual-quality certification.
 
+The advanced lab adds **21 reverse + 21 shuffled shader-frame matches**, exact
+clean-pixel bypass, independent effect controls, verified quarter-speed source
+indices and bounded-cache checks. Its encoded preview is **16.000s / 960 frames**,
+with measured audio and a full decode. CI additionally runs **8 timing, rig and
+project-materialization tests**. See the [advanced evidence](docs/BROADCAST_LAB.md).
+
 ## Contribute
 
 Contributions with reproducible production evidence are welcome: better editorial
@@ -267,6 +320,7 @@ Start with [CONTRIBUTING.md](CONTRIBUTING.md).
 ```sh
 python3 scripts/check-package.py
 python3 tests/test_verifier.py
+node --test tests/*.test.mjs
 ```
 
 ## License & credits

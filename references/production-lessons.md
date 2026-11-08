@@ -22,6 +22,10 @@ label; no fabricated footage or substitute narration should silently fill the ga
 
 ## Hermagotchi Television — broadcast as an organizing principle
 
+The reusable implementation is now in [the broadcast kit](../kits/broadcast/README.md),
+with a [runnable advanced lab](../templates/broadcast-lab/README.md) and
+[detailed production guide](advanced-broadcast.md).
+
 **Keep:** Channels had genuinely different genres—weather, home video, shopping,
 arena, public access and educational film—inside one broadcast identity. A global
 effect-intensity control allowed clean/treated comparisons. Source pixel assets,

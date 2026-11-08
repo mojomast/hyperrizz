@@ -1,0 +1,47 @@
+{
+  "samples": [
+    0,
+    5,
+    108,
+    239,
+    240,
+    241,
+    330,
+    479,
+    480,
+    481,
+    528,
+    599,
+    600,
+    601,
+    648,
+    719,
+    720,
+    721,
+    810,
+    930,
+    959
+  ],
+  "reverseMatches": 21,
+  "shuffledMatches": 21,
+  "motionChanged": true,
+  "cleanBypass": {
+    "maximum": 0,
+    "changed": 0
+  },
+  "intensityLevelsDistinct": true,
+  "tuningChanged": true,
+  "collapseChanged": true,
+  "quarterSpeedSourceFrames": [
+    30,
+    30,
+    30,
+    31,
+    42
+  ],
+  "cacheEntries": 12,
+  "rejectedMissingFrame": true,
+  "respectedAbort": true,
+  "pageErrors": [],
+  "browser": "HeadlessChrome/152.0.7977.30"
+}

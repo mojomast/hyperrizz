@@ -22,3 +22,5 @@ jobs:
         run: python3 scripts/check-package.py
       - name: Exercise media-verifier failure cases
         run: python3 tests/test_verifier.py
+      - name: Verify broadcast timing and rig contracts
+        run: node --test tests/*.test.mjs

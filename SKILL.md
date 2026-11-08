@@ -3,7 +3,7 @@ name: Hyperrizz
 description: Create, restyle, debug, render, or verify HyperFrames videos, product promos, release films, motion graphics, and audiovisual presentations. Use for end-to-end HyperFrames production, distinctive art direction, real UI/media integration, deterministic animation, sound, encoded-media QA, and delivery. Also use when resuming an interrupted HyperFrames production.
 license: MIT
 metadata:
-  version: "1.0.0"
+  version: "1.1.0"
 ---
 
 # Hyperrizz
@@ -20,6 +20,7 @@ All paths below are relative to this skill's directory.
 - **Start or restyle:** [Art direction](references/art-direction.md).
 - **Implement or debug:** [Runtime and rendering](references/runtime.md).
 - **Use footage, screenshots, music or VO:** [Media and audio](references/media-audio.md).
+- **Shaders, pixel characters, broadcast genres or replay:** [Advanced broadcast production](references/advanced-broadcast.md).
 - **Check, render, resume, or share:** [QA and delivery](references/qa-delivery.md).
 - **Apply experience from previous films:** [Production lessons](references/production-lessons.md).
 - **Version-specific behavior:** [Sources](references/sources.md), then the relevant official page and installed CLI help.
@@ -30,11 +31,15 @@ Reusable materials:
 - [Review report](templates/REVIEW.md) — record measured results and remaining work.
 - [Resume checkpoint](templates/STATUS.md) — source/export freshness and job ownership.
 - [Minimal runnable project](templates/starter/README.md) — copy the entire directory to a new project; never develop or render inside the installed skill.
+- [Advanced broadcast kit](kits/broadcast/README.md) — reusable WebGL2 CRT/VHS, native-grid rigs, source-frame cache, OSD and replay helpers.
+- [Broadcast lab](templates/broadcast-lab/README.md) — materialize with `node scripts/create-broadcast-lab.mjs /new/project/path`; exercises the advanced kit in a 16-second audiovisual film.
 - [Media verifier](templates/starter/scripts/verify-media.py) — ffprobe, full decode, frame count, duration, audio policy and optional loudness/size limits.
 
 The starter is an engineering calibration clip, **not an art-direction template**.
 Replace its composition, typography and motion instead of making every film look
 like it. Bundled tools are local; no hosted API or generation service is required.
+For advanced treatments, use the broadcast lab and its effect-sensitive tests rather
+than treating a passing two-second calibration as validation of shaders or rigs.
 
 ## 1. Establish the production contract
 

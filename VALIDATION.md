@@ -1,5 +1,15 @@
 # Hyperrizz validation — 2026-11-08
 
+## Advanced broadcast expansion · v1.1.0
+
+The optional Hermagotchi-derived kit and 16-second broadcast lab were built,
+checked and rendered. **21 reverse + 21 shuffled shader samples** matched; clean
+bypass, effect controls, quarter-speed replay, cache bounds and cancellation checks
+passed. Both encoded files fully decoded. Five timing/rig tests and three safe
+materialization tests passed. The six software-WebGL readback warnings and remaining
+review limitations are documented in [the advanced report](docs/BROADCAST_LAB.md).
+Its preview, contact sheet and verification JSON are committed with the example.
+
 ## Repository packaging
 
 - Renamed the public skill to **Hyperrizz**, with `hyperrizz` as its installation ID.
