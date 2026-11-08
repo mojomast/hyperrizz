@@ -1,5 +1,15 @@
 # Hyperrizz validation — 2026-11-08
 
+## Hermes plugin · v2.0.0
+
+The plugin report is [docs/HERMES_PLUGIN.md](docs/HERMES_PLUGIN.md), with
+[machine-readable evidence](docs/examples/hermes-plugin-evidence.json). It covers
+real Hermes doctor/validate and isolated-host authentication/transport checks,
+17 Python behavior contracts, the native player and pane browser harness,
+actual full-Studio edit/save/checkpoint, process cancellation and failed-build
+recovery, plus a verified 16-second integration export. Native Desktop and a
+provider-backed model conversation are distinguished from the SDK test harness.
+
 ## Advanced broadcast expansion · v1.1.0
 
 The optional Hermagotchi-derived kit and 16-second broadcast lab were built,

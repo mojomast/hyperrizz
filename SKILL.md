@@ -3,7 +3,7 @@ name: Hyperrizz
 description: Create, restyle, debug, render, or verify HyperFrames videos, product promos, release films, motion graphics, and audiovisual presentations. Use for end-to-end HyperFrames production, distinctive art direction, real UI/media integration, deterministic animation, sound, encoded-media QA, and delivery. Also use when resuming an interrupted HyperFrames production.
 license: MIT
 metadata:
-  version: "1.1.0"
+  version: "2.0.0"
 ---
 
 # Hyperrizz
@@ -12,6 +12,23 @@ Make a film with a specific identity, trustworthy content, intentional timing,
 and a verified export. Code that renders is the beginning of production, not
 its finish. A request to make a video includes producing the requested export;
 do not stop at a plan, storyboard, or preview unless that is the requested scope.
+
+## In Hermes: lead the work, keep the user in the loop
+
+When `hyperrizz_project`, `hyperrizz_review` and `hyperrizz_produce` are available,
+read [the Hermes workflow](references/hermes-workflow.md) and use those tools for
+managed projects. Start with the live review pane; open full Studio only when the
+user wants hands-on editing. Make the creative and technical decisions yourself
+unless a material input is missing. Do not turn a film request into a questionnaire
+or require the user to operate a timeline. Publish the first live composition early,
+then iterate, check, and finish the requested deliverable.
+
+Frame feedback is pinned to a project, revision and frame. Read the note and the
+current source before editing; use optimistic file hashes, rebuild, inspect the
+result, and resolve the note only after addressing it. A pane's “Iterate with
+Hermes” button sends that context to the same conversation through the host SDK.
+Source changes update the live preview after a successful build; they do not need
+an MP4 encode. Rendering is the delivery step, not the feedback loop.
 
 ## Load only the relevant references
 

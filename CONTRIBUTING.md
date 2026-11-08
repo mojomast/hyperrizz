@@ -22,6 +22,7 @@ Requires Python 3.11+, Node 22+ and FFmpeg/ffprobe.
 python3 scripts/check-package.py
 python3 tests/test_verifier.py
 node --test tests/*.test.mjs
+python3 -m pytest tests/test_plugin.py -q
 ```
 
 For starter/runtime changes, copy `templates/starter/` outside the skill and run
@@ -34,6 +35,13 @@ For broadcast-kit changes, materialize the advanced lab with
 `node scripts/create-broadcast-lab.mjs /new/project/path` and run its full workflow.
 Its shader/effect/replay checks complement the pure timing/rig tests; they are not
 replaced by the simple starter's calibration. Preserve `kits/broadcast/LICENSE`.
+
+For Hermes changes, run `hermes plugins doctor . --ci` and
+`hermes plugins validate . --install-deps`. Follow [the plugin validation guide](docs/HERMES_PLUGIN.md)
+for real browser, pane, host-authentication and process-lifecycle acceptance.
+Keep the three-tool surface small, preserve profile/session boundaries, and test
+manual Studio changes across the next source rebuild. Native pane imports stay
+inside the Hermes SDK; the test SDK lives only under `tests/ui/`.
 
 ## Pull requests
 

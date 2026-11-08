@@ -1,0 +1,65 @@
+{
+  "pluginVersion": "2.0.0",
+  "hermesSource": "0b82ddc96c39449d30763d0fdd50ac22fed0fb31",
+  "hyperframes": "0.9.23",
+  "pythonBehaviorTests": 17,
+  "nodeTests": 8,
+  "ffmpegVerifierTests": 7,
+  "host": {
+    "isolation": "host",
+    "anonymous": 401,
+    "authenticated": 200,
+    "disabled": 404,
+    "largePreviewAndNotes": true
+  },
+  "pane": {
+    "scope": "shipping pane bundle + SDK harness + real REST backend + upstream HyperFrames player",
+    "frameNotes": true,
+    "addressedComposerSubmission": true,
+    "crossSessionIsolation": true,
+    "pageErrors": 0
+  },
+  "studio": {
+    "real_input": true,
+    "saved_through_studio": true,
+    "running": false,
+    "revision": 2,
+    "changed": true,
+    "source_reconciliation_required": true
+  },
+  "lifecycle": {
+    "ok": true,
+    "cancelledProcessGroup": true,
+    "deadOwnedLockReleased": true,
+    "failedBuildPreservedPreview": true
+  },
+  "export": {
+    "revision": 3,
+    "file": "master-candidate.mp4",
+    "sha256": "545bddab028449a4b1df2e8f75ddace8ef40aed8ce1fa581be46b5443ca84ca1",
+    "bytes": 3781435,
+    "videoCodec": "h264",
+    "width": 960,
+    "height": 540,
+    "fps": "60/1",
+    "frames": 960,
+    "videoDuration": 16.0,
+    "containerDuration": 16.0,
+    "expectedPictureDuration": 16.0,
+    "audioStreams": 1,
+    "loudness": {
+      "integratedLufs": -17.95,
+      "truePeakDbtp": -5.2,
+      "rangeLu": 10.0,
+      "scope": "first encoded audio stream"
+    },
+    "fullDecode": true,
+    "passed": true,
+    "errors": []
+  },
+  "limitations": [
+    "No signed-in native Desktop window or provider-backed Hermes model turn tested",
+    "macOS not tested",
+    "No subjective listening claim"
+  ]
+}

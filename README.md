@@ -3,13 +3,14 @@
 </p>
 
 <p align="center">
-  <strong>A production-minded agent skill for making distinctive HyperFrames videos.</strong><br>
-  Art direction, motion, real media, sound, deterministic rendering, and delivery you can verify.
+  <strong>Tell Hermes the story. Watch your film take shape.</strong><br>
+  Agent-led production, a live review pane, frame-specific iteration, and the full HyperFrames editor when you want it.
 </p>
 
 <p align="center">
   <a href="https://github.com/mojomast/hyperrizz/actions/workflows/check.yml"><img src="https://github.com/mojomast/hyperrizz/actions/workflows/check.yml/badge.svg" alt="Package and verifier checks"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-D8F36A?style=flat-square&labelColor=171923" alt="MIT license"></a>
+  <a href="docs/HERMES_PLUGIN.md"><img src="https://img.shields.io/badge/Hermes-plugin_2.0.0-E8B968?style=flat-square&labelColor=171923" alt="Hermes plugin 2.0.0"></a>
   <a href="https://hyperframes.heygen.com"><img src="https://img.shields.io/badge/starter-HyperFrames_0.9.23-B5A2FF?style=flat-square&labelColor=171923" alt="Starter pinned to HyperFrames 0.9.23"></a>
   <a href="https://opencode.ai/v2/docs/skills"><img src="https://img.shields.io/badge/agent-OpenCode_V2-FF9474?style=flat-square&labelColor=171923" alt="OpenCode V2 skill"></a>
 </p>
@@ -37,6 +38,40 @@ The skill carries forward their techniques **and their mistakes**.
 
 **The core idea:** reuse the engineering; invent the film.
 
+## A conversation, not a timeline assignment
+
+![Hyperrizz live review pane, running the actual broadcast composition](docs/assets/hermes-review-pane.png)
+
+*The shipping pane bundle in the SDK acceptance harness, with the real backend and
+HyperFrames player. See [the verification scope](docs/HERMES_PLUGIN.md).*
+
+**Hands-off first.** Hermes researches, art-directs, writes the scenes, builds,
+checks and iterates. You can watch the actual project before spending time encoding
+an MP4. Playback, sound, a scrubber and frame stepping are right there.
+
+**Feedback with a location.** Pause on a moment, write what you want changed, and
+hit **Iterate with Hermes**. The note carries the project, revision and exact frame
+back into that conversation. The next successful build refreshes the live preview.
+
+**Go deeper when you want.** **Full editor** opens the actual HyperFrames Studio
+inside the pane: timeline, assets, code, layers and inspector. Click, drag, type and
+paste. **Keep edits & review** checkpoints your changes. The agent reconciles manual
+edits with source before rebuilding, so a source build cannot silently erase them.
+
+**Render at delivery.** Verified exports are separate from the live preview. Jobs
+are cancellable; failed builds retain the last working revision, and failed exports
+retain the last verified MP4. Source writes detect conflicts, and restoring an older
+revision backs up unbuilt work first.
+
+| Agent tool | Purpose |
+| --- | --- |
+| `hyperrizz_project` | Create, inspect, edit, restore and reconcile film projects |
+| `hyperrizz_review` | Open the pane, exchange frame notes and manage Studio handoff |
+| `hyperrizz_produce` | Build, check, render, inspect jobs and cancel |
+
+The production skill, guides, advanced broadcast kit and standalone templates are
+all still included. No extra generation account or API key is needed.
+
 | A good-looking frame needs… | A finished film also needs… |
 | --- | --- |
 | A subject-derived visual identity | An editorial arc and readable holds |
@@ -47,6 +82,25 @@ The skill carries forward their techniques **and their mistakes**.
 | A successful render command | A verified encode and a working delivery link |
 
 ## Install
+
+### Hermes · plugin + live pane
+
+```sh
+hermes plugins install mojomast/hyperrizz
+hermes plugins enable hyperrizz
+```
+
+Enable **Hyperrizz** in Desktop/Webapp **Capabilities → Plugins** to show its pane.
+The package includes both the agent tools and `desktop/plugin.js`. For a remote
+Hermes backend, install the Desktop half on the client as well through **Install
+from Git**. Requires Hermes **0.23.0+**, Node **22+**, Python **3.11+** and FFmpeg.
+Linux is the tested production platform; macOS is declared but not yet tested.
+
+Ask: **“Use Hyperrizz to make a 30-second film about this release. You handle the
+creative direction. Show the live project as you work, then deliver the MP4.”**
+
+The first build installs the pinned npm dependencies automatically. The bundled
+skill is **`hyperrizz:production`**. [Detailed Hermes workflow](references/hermes-workflow.md).
 
 ### OpenCode · all projects
 
@@ -79,8 +133,9 @@ local edits before updating. OpenCode derives the skill ID from the directory na
 so keep the installation directory named `hyperrizz`.
 
 The package is ordinary Markdown, Python and JavaScript. Other skill-capable agents
-can use its instructions and templates, but **OpenCode V2 discovery is the tested
-integration**. See the [official skill guide](https://opencode.ai/v2/docs/skills).
+can use its instructions and templates. Both OpenCode discovery and Hermes plugin
+registration are checked; the [plugin report](docs/HERMES_PLUGIN.md) distinguishes
+real backend/player tests from the SDK test harness.
 
 ## Put it to work
 

@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1600" height="620" viewBox="0 0 1600 620" role="img" aria-labelledby="title desc">
   <title id="title">Hyperrizz</title>
-  <desc id="desc">Give the film an identity. Give the render receipts. A production skill covering direction, motion, and verified delivery.</desc>
+  <desc id="desc">Agent-led filmmaking for Hermes and HyperFrames. Direction, live iteration, and verified delivery.</desc>
   <defs>
     <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#252936" stroke-width="1"/></pattern>
     <clipPath id="corner"><rect x="1152" y="112" width="376" height="250" rx="12"/></clipPath>
@@ -10,7 +10,7 @@
   <rect x="1152" y="112" width="376" height="250" rx="12" fill="url(#grid)"/>
   <g font-family="Arial, Helvetica, sans-serif">
     <circle cx="81" cy="67" r="7" fill="#d8f36a"/>
-    <text x="103" y="74" fill="#d8f36a" font-size="19" font-weight="700" letter-spacing="3">THE HYPERFRAMES PRODUCTION SKILL</text>
+    <text x="103" y="74" fill="#d8f36a" font-size="19" font-weight="700" letter-spacing="3">HERMES × HYPERFRAMES / AGENT-LED FILMMAKING</text>
     <text x="1528" y="74" fill="#a9b0c2" font-size="17" letter-spacing="2" text-anchor="end">DIRECTION → DELIVERY</text>
     <path d="M72 95H1528" stroke="#353b4a"/>
     <text x="62" y="255" fill="#f2f4ed" font-size="178" font-weight="900" letter-spacing="-9" textLength="1065" lengthAdjust="spacingAndGlyphs">HYPER<tspan fill="#d8f36a">RIZZ</tspan></text>
@@ -39,8 +39,8 @@
     </g>
     <g transform="translate(573 423)">
       <rect width="454" height="131" rx="8" fill="#1b202c"/>
-      <text x="24" y="35" fill="#a9b0c2" font-size="14" letter-spacing="2">02 / MAKE IT MOVE</text>
-      <text x="24" y="82" fill="#f2f4ed" font-size="33" font-weight="700">Meaningful motion.</text>
+      <text x="24" y="35" fill="#a9b0c2" font-size="14" letter-spacing="2">02 / SHAPE THE NEXT CUT</text>
+      <text x="24" y="82" fill="#f2f4ed" font-size="33" font-weight="700">Live iteration.</text>
       <circle cx="405" cy="67" r="26" fill="none" stroke="#b5a2ff" stroke-width="2"/>
       <circle cx="405" cy="41" r="7" fill="#b5a2ff"/>
     </g>

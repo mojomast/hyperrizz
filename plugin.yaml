@@ -1,0 +1,19 @@
+manifest_version: 2
+api_version: 1
+name: hyperrizz
+version: "2.0.0"
+description: >-
+  Agent-led HyperFrames films with a live review pane, frame notes, revisions and
+  on-demand full Studio. Runs local Node/Chromium/FFmpeg subprocesses and background
+  jobs; npm downloads pinned dependencies on first build. Project code runs locally.
+  Stores projects in profile-scoped plugin data. No API keys or hosted generation.
+author: mojomast
+license: MIT
+homepage: https://github.com/mojomast/hyperrizz
+requires_hermes: ">=0.23.0"
+provides_tools: [hyperrizz_project, hyperrizz_review, hyperrizz_produce]
+provides_hooks: [post_tool_call]
+requires_env: []
+capabilities: []
+platforms: [linux, macos]
+tags: [video, hyperframes, creative, preview]

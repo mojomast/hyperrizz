@@ -8,7 +8,7 @@ import sys
 import xml.etree.ElementTree as ET
 
 root = Path(__file__).resolve().parents[1]
-excluded = {'.git', 'node_modules', '__pycache__', '.work', '.build', '.cache', 'out', 'previews'}
+excluded = {'.git', 'node_modules', '__pycache__', '.pytest_cache', '.work', '.build', '.cache', 'out', 'previews'}
 files = [p for p in root.rglob('*') if p.is_file() and not excluded.intersection(p.relative_to(root).parts)]
 errors = []
 for p in files:

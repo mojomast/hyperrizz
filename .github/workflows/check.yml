@@ -1,4 +1,4 @@
-name: Package and verifier checks
+name: Plugin, package and media checks
 on:
   push:
   pull_request:
@@ -20,6 +20,10 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y ffmpeg
       - name: Validate skill package
         run: python3 scripts/check-package.py
+      - name: Install plugin test dependencies
+        run: python3 -m pip install 'pytest>=8,<10' 'pyyaml>=6,<7' 'fastapi>=0.115,<1'
+      - name: Verify plugin behavior contracts
+        run: python3 -m pytest tests/test_plugin.py -q
       - name: Exercise media-verifier failure cases
         run: python3 tests/test_verifier.py
       - name: Verify broadcast timing and rig contracts
