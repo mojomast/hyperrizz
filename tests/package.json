@@ -1,8 +1,8 @@
 {
-  "name": "hyperrizz-plugin-development",
+  "name": "hyperrizz-test-harness",
   "version": "2.0.0",
   "private": true,
   "type": "module",
-  "scripts": {"test": "node --test tests/*.test.mjs", "test:pane": "node tests/pane-browser.mjs"},
+  "scripts": {"test": "node --test *.test.mjs", "test:pane": "node pane-browser.mjs"},
   "devDependencies": {"esbuild": "0.25.12", "puppeteer-core": "25.16.0", "react": "19.2.0", "react-dom": "19.2.0"}
 }

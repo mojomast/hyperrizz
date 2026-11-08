@@ -151,8 +151,8 @@ subjective listening are not implied by passing software checks.
 python3 scripts/check-package.py
 python3 -m pytest tests/test_plugin.py -q
 python3 tests/test_verifier.py
-npm ci
-npm test
+npm --prefix tests ci
+npm --prefix tests test
 hermes plugins doctor . --ci
 hermes plugins validate . --install-deps
 ```
@@ -160,6 +160,9 @@ hermes plugins validate . --install-deps
 The optional browser tests need a provisioned project/Chromium and run sequentially:
 `tests/preview-browser.mjs` tests the player; `tests/pane-browser.mjs` tests the pane.
 `tests/hermes-host.py` requires a Hermes checkout and an isolated test home.
+The Node test dependencies live under `tests/`, so normal plugin installation does
+not prompt to install React or the test harness. Project build dependencies are
+installed into each project's own directory by its first build.
 Run it with that checkout's selected Hermes runtime interpreter; mixing a Python
 3.11 executable with dependencies resolved for Python 3.14 cannot load native wheels.
 

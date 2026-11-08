@@ -1,14 +1,17 @@
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
 import path from 'node:path';
+import {fileURLToPath} from 'node:url';
 import {spawn} from 'node:child_process';
 import {build} from 'esbuild';
 import puppeteer from 'puppeteer-core';
 
 const [data, project, chrome, python='python3'] = process.argv.slice(2);
-if(!chrome)throw Error('Usage: npm run test:pane -- DATA_DIR PROJECT_ID CHROME [PYTHON]');
-const root=process.cwd(),bundle=path.join(data,'pane-test.js'),port=18596,key='isolated-pane-test';
-await build({entryPoints:['tests/ui/app.js'],bundle:true,format:'esm',outfile:bundle,
+if(!chrome)throw Error('Usage: npm --prefix tests run test:pane -- DATA_DIR PROJECT_ID CHROME [PYTHON]');
+const root=fileURLToPath(new URL('../',import.meta.url)),bundle=path.join(data,'pane-test.js'),port=18596,key='isolated-pane-test';
+process.chdir(root);
+await build({absWorkingDir:root,entryPoints:['tests/ui/app.js'],bundle:true,format:'esm',outfile:bundle,
+  nodePaths:[path.join(root,'tests/node_modules')],
   alias:{'@hermes/plugin-sdk':path.join(root,'tests/ui/sdk-harness.js')},define:{'process.env.NODE_ENV':'"production"'}});
 const server=spawn(python,['tests/pane_server.py',data,bundle,key,String(port)],{cwd:root,
   env:{PATH:process.env.PATH,HOME:data,LANG:'C.UTF-8'},stdio:['ignore','pipe','pipe']});
