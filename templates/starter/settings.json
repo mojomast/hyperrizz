@@ -1,0 +1,12 @@
+{
+  "width": 640,
+  "height": 360,
+  "fps": 30,
+  "previewWidth": 320,
+  "previewMaxBytes": 1000000,
+  "audio": null,
+  "scenes": [
+    {"id": "scene-01-sweep", "frames": 30},
+    {"id": "scene-02-orbit", "frames": 30}
+  ]
+}

@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="620" viewBox="0 0 1600 620" role="img" aria-labelledby="title desc">
+  <title id="title">Hyperrizz</title>
+  <desc id="desc">Give the film an identity. Give the render receipts. A production skill covering direction, motion, and verified delivery.</desc>
+  <defs>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="#252936" stroke-width="1"/></pattern>
+    <clipPath id="corner"><rect x="1152" y="112" width="376" height="250" rx="12"/></clipPath>
+  </defs>
+  <rect width="1600" height="620" rx="20" fill="#12151e"/>
+  <rect x="1" y="1" width="1598" height="618" rx="19" fill="none" stroke="#303544" stroke-width="2"/>
+  <rect x="1152" y="112" width="376" height="250" rx="12" fill="url(#grid)"/>
+  <g font-family="Arial, Helvetica, sans-serif">
+    <circle cx="81" cy="67" r="7" fill="#d8f36a"/>
+    <text x="103" y="74" fill="#d8f36a" font-size="19" font-weight="700" letter-spacing="3">THE HYPERFRAMES PRODUCTION SKILL</text>
+    <text x="1528" y="74" fill="#a9b0c2" font-size="17" letter-spacing="2" text-anchor="end">DIRECTION → DELIVERY</text>
+    <path d="M72 95H1528" stroke="#353b4a"/>
+    <text x="62" y="255" fill="#f2f4ed" font-size="178" font-weight="900" letter-spacing="-9" textLength="1065" lengthAdjust="spacingAndGlyphs">HYPER<tspan fill="#d8f36a">RIZZ</tspan></text>
+    <text x="76" y="311" fill="#f2f4ed" font-size="32" font-weight="600">Give the film an identity.</text>
+    <text x="76" y="352" fill="#a9b0c2" font-size="32">Give the render receipts.</text>
+    <g clip-path="url(#corner)">
+      <g transform="translate(1340 238) rotate(-18)">
+        <rect x="-129" y="-83" width="258" height="166" rx="3" fill="#12151e" stroke="#555d73" stroke-width="2"/>
+      </g>
+      <g transform="translate(1340 238) rotate(-8)">
+        <rect x="-129" y="-83" width="258" height="166" rx="3" fill="#191e2a" stroke="#b5a2ff" stroke-width="2"/>
+      </g>
+      <g transform="translate(1340 238) rotate(4)">
+        <rect x="-129" y="-83" width="258" height="166" rx="3" fill="#d8f36a"/>
+        <path d="M-28 -40L38 0 -28 40Z" fill="#12151e"/>
+        <path d="M-111 -65H-86M-111 -65V-40M111 65H86M111 65V40" stroke="#12151e" stroke-width="2" fill="none"/>
+        <text x="98" y="-48" text-anchor="end" fill="#12151e" font-size="13" font-weight="700" letter-spacing="1">FRAME / 001</text>
+      </g>
+    </g>
+    <path d="M72 393H1528" stroke="#353b4a"/>
+    <g transform="translate(72 423)">
+      <rect width="454" height="131" rx="8" fill="#1b202c"/>
+      <text x="24" y="35" fill="#a9b0c2" font-size="14" letter-spacing="2">01 / FIND THE WORLD</text>
+      <text x="24" y="82" fill="#f2f4ed" font-size="33" font-weight="700">Art direction.</text>
+      <path d="M378 36h36v60h-60V60h24Z" fill="none" stroke="#ff9474" stroke-width="3"/>
+    </g>
+    <g transform="translate(573 423)">
+      <rect width="454" height="131" rx="8" fill="#1b202c"/>
+      <text x="24" y="35" fill="#a9b0c2" font-size="14" letter-spacing="2">02 / MAKE IT MOVE</text>
+      <text x="24" y="82" fill="#f2f4ed" font-size="33" font-weight="700">Meaningful motion.</text>
+      <circle cx="405" cy="67" r="26" fill="none" stroke="#b5a2ff" stroke-width="2"/>
+      <circle cx="405" cy="41" r="7" fill="#b5a2ff"/>
+    </g>
+    <g transform="translate(1074 423)">
+      <rect width="454" height="131" rx="8" fill="#1b202c"/>
+      <text x="24" y="35" fill="#a9b0c2" font-size="14" letter-spacing="2">03 / CHECK THE FILE</text>
+      <text x="24" y="82" fill="#f2f4ed" font-size="33" font-weight="700">Verified delivery.</text>
+      <path d="M372 69l15 15 29-35" stroke="#d8f36a" stroke-width="5" fill="none" stroke-linecap="square"/>
+    </g>
+    <text x="76" y="588" fill="#737e96" font-size="14" letter-spacing="2">REUSE THE ENGINEERING. INVENT THE FILM.</text>
+    <text x="1525" y="588" fill="#737e96" font-size="14" text-anchor="end" letter-spacing="2">MOJOMAST / HYPERRIZZ</text>
+  </g>
+</svg>

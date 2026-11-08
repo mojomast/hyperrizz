@@ -1,0 +1,11 @@
+import fs from 'node:fs';
+import assert from 'node:assert/strict';
+import {root, settings, verify} from './common.mjs';
+process.chdir(root);
+const width = Math.min(settings.width, settings.previewWidth);
+const height = Math.round(settings.height * width / settings.width / 2) * 2;
+verify('out/master.mp4', settings.width, settings.height, 'out/master-verification.json');
+verify('previews/preview.mp4', width, height, 'out/preview-verification.json', settings.previewMaxBytes);
+const built = JSON.parse(fs.readFileSync('.build/build.json'));
+const rendered = JSON.parse(fs.readFileSync('out/render-build.json'));
+assert.equal(rendered.sha256, built.sha256, 'Build changed since export; rerender. Rebuild first after source edits.');

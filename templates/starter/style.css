@@ -1,0 +1,4 @@
+*{box-sizing:border-box}
+html,body{margin:0;background:#141820}
+#film{position:relative;overflow:hidden}
+.scene,canvas{position:absolute;inset:0;display:block}
