@@ -1,6 +1,6 @@
 # Hyperrizz for Hermes
 
-**Version 2.0.0 · agent-led production + native live review + optional full Studio.**
+**Version 2.0.1 · agent-led production + native live review + optional full Studio.**
 
 ## What ships
 

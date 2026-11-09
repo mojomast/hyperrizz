@@ -10,7 +10,7 @@
 <p align="center">
   <a href="https://github.com/mojomast/hyperrizz/actions/workflows/check.yml"><img src="https://github.com/mojomast/hyperrizz/actions/workflows/check.yml/badge.svg" alt="Package and verifier checks"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-D8F36A?style=flat-square&labelColor=171923" alt="MIT license"></a>
-  <a href="docs/HERMES_PLUGIN.md"><img src="https://img.shields.io/badge/Hermes-plugin_2.0.0-E8B968?style=flat-square&labelColor=171923" alt="Hermes plugin 2.0.0"></a>
+  <a href="docs/HERMES_PLUGIN.md"><img src="https://img.shields.io/badge/Hermes-plugin_2.0.1-E8B968?style=flat-square&labelColor=171923" alt="Hermes plugin 2.0.1"></a>
   <a href="https://hyperframes.heygen.com"><img src="https://img.shields.io/badge/starter-HyperFrames_0.9.23-B5A2FF?style=flat-square&labelColor=171923" alt="Starter pinned to HyperFrames 0.9.23"></a>
   <a href="https://opencode.ai/v2/docs/skills"><img src="https://img.shields.io/badge/agent-OpenCode_V2-FF9474?style=flat-square&labelColor=171923" alt="OpenCode V2 skill"></a>
 </p>

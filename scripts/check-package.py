@@ -27,7 +27,8 @@ for p in files:
         elif p.suffix == '.py':
             ast.parse(p.read_text(), filename=str(p))
         elif p.suffix in {'.js', '.mjs'}:
-            subprocess.run(['node', '--check', str(p)], check=True, capture_output=True, text=True)
+            subprocess.run(['node', '--check', str(p)], check=True, capture_output=True, text=True,
+                               env={'PATH': '/usr/local/bin:/usr/bin:/bin', 'LANG': 'C.UTF-8'})
         elif p.suffix == '.svg':
             ET.parse(p)
     except (ValueError, SyntaxError, ET.ParseError, subprocess.CalledProcessError) as e:

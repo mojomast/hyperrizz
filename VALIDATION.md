@@ -1,6 +1,6 @@
 # Hyperrizz validation — 2026-11-08
 
-## Hermes plugin · v2.0.0
+## Hermes plugin · v2.0.1
 
 The plugin report is [docs/HERMES_PLUGIN.md](docs/HERMES_PLUGIN.md), with
 [machine-readable evidence](docs/examples/hermes-plugin-evidence.json). It covers
