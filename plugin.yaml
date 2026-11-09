@@ -1,7 +1,7 @@
 manifest_version: 2
 api_version: 1
 name: hyperrizz
-version: "2.0.0"
+version: "2.0.1"
 description: >-
   Agent-led HyperFrames films with a live review pane, frame notes, revisions and
   on-demand full Studio. Runs local Node/Chromium/FFmpeg subprocesses and background
