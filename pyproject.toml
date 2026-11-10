@@ -1,6 +1,6 @@
 [project]
 name = "hermes-hyperrizz"
-version = "2.0.1"
+version = "2.1.0"
 description = "Agent-led film production and live review for Hermes"
 requires-python = ">=3.11"
 dependencies = ["fastapi>=0.115,<1"]

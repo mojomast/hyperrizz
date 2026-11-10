@@ -88,6 +88,13 @@ listening review. Do not claim it was mastered or artistically validated. Use mo
 varied composition/rhythm, an arranged score, encoded audio measurements and full
 playback review before presenting the next film as fully finished.
 
+## Money shot
+
+Frame 0 is the social thumbnail. The films that opened on a fade or an unfinished
+title gave feeds a black or half-built still even when the settled frame, a second
+later, was the one worth posting. Hold that settled hero from the first output
+frame. Leave the soundtrack where the edit put it.
+
 ## General synthesis
 
 Reuse deterministic rendering, provenance, budgets and QC. Do not reuse a prior

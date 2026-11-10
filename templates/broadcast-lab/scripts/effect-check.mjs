@@ -51,6 +51,21 @@ try {
   for (const frame of [...samples].reverse()) assert.equal(await capture(frame), expected.get(frame), `Reverse frame ${frame}`);
   for (const frame of [...samples.filter((_, i) => i % 2), ...samples.filter((_, i) => !(i % 2))]) assert.equal(await capture(frame), expected.get(frame), `Shuffled frame ${frame}`);
   assert.notEqual(expected.get(0), expected.get(5), 'Motion frozen');
+  const shot = await page.evaluate(async () => {
+    await Film.test.seek(0);
+    const px = Film.test.sourcePixels(0);
+    const i = (163 * 960 + 480) * 4;
+    return {plan: Film.test.moneyShot, picture: Film.test.picture(0), line: [px[i], px[i + 1], px[i + 2]]};
+  });
+  assert.equal(shot.plan.enabled, true);
+  assert.equal(shot.plan.sceneId, 'scene-signal');
+  assert.equal(shot.plan.coldOpen, false);
+  assert.equal(shot.plan.shiftsAudio, false);
+  assert.equal(shot.plan.insertedFrames, 0);
+  assert.equal(shot.plan.audioStart, 0);
+  assert.equal(shot.picture.held, true);
+  assert.equal(shot.picture.localFrame, shot.plan.openingSettle);
+  assert.ok(shot.line[0] > 160 && shot.line[1] > 200 && shot.line[2] > 120, `frame 0 is not the settled ident, rgb ${shot.line.join(',')}`);
   const clean = await capture(330, {intensity: 0, burst: 0, collapse: 0});
   assert.notEqual(clean, expected.get(330), 'Intensity control does not affect pixels');
   assert.notEqual(await capture(330, {intensity: 1}), expected.get(330), 'Maximum intensity does not affect pixels');
@@ -74,7 +89,7 @@ try {
   assert.equal(await page.evaluate(async () => { try { await Film.test.invalidFrame(); return false; } catch { return true; } }), true);
   assert.equal(await page.evaluate(async () => { try { await Film.test.abortedFrame(); return false; } catch (e) { return e.name === 'AbortError'; } }), true);
   assert.deepEqual(errors, []);
-  const report = {samples, reverseMatches: samples.length, shuffledMatches: samples.length, motionChanged: true,
+  const report = {samples, reverseMatches: samples.length, shuffledMatches: samples.length, motionChanged: true, moneyShot: shot.plan,
     cleanBypass: cleanDiff, intensityLevelsDistinct: true, tuningChanged: true, collapseChanged: true,
     quarterSpeedSourceFrames: sourceFrames, cacheEntries: state.cacheEntries, rejectedMissingFrame: true, respectedAbort: true,
     pageErrors: errors, browser: await browser.version()};

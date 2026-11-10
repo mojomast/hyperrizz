@@ -24,7 +24,7 @@ const pkg = JSON.parse(fs.readFileSync(packagePath));
 pkg.name = 'hyperrizz-broadcast-lab';
 pkg.scripts.build = 'node scripts/prepare.mjs && node scripts/build.mjs';
 pkg.scripts['seek-check'] = 'node scripts/effect-check.mjs';
-pkg.scripts.stills = 'hyperframes snapshot .build --at 1.8,5.5,8.8,10.8,13.5,15.4 --no-end --output previews/keyframes';
+pkg.scripts.stills = 'hyperframes snapshot .build --at 0,1.8,5.5,8.8,10.8,13.5,15.4 --no-end --output previews/keyframes';
 fs.writeFileSync(packagePath, JSON.stringify(pkg, null, 2) + '\n');
 const lockPath = path.join(target, 'package-lock.json');
 const lock = JSON.parse(fs.readFileSync(lockPath));

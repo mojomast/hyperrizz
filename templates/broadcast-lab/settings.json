@@ -11,9 +11,9 @@
   "sourceFps": 60,
   "sourceFrames": 240,
   "scenes": [
-    {"id": "scene-signal", "frames": 240},
-    {"id": "scene-wardrobe", "frames": 240},
-    {"id": "scene-replay", "frames": 240},
-    {"id": "scene-signoff", "frames": 240}
+    {"id": "scene-signal", "frames": 240, "role": "title", "hero": true, "hook": "AFTER HOURS.", "settleFrame": 108},
+    {"id": "scene-wardrobe", "frames": 240, "role": "feature", "hook": "BUILT TO FIT.", "settleFrame": 132},
+    {"id": "scene-replay", "frames": 240, "role": "proof", "hook": "WATCH IT BACK.", "settleFrame": 180},
+    {"id": "scene-signoff", "frames": 240, "role": "signoff", "hook": "SAME FRAME.", "settleFrame": 72}
   ]
 }

@@ -29,6 +29,7 @@
 - Tempo, downbeat and phrase phase (only if relevant):
 - Locked VO/action cues:
 - Fades and final hold inside picture duration:
+- Money shot: hero scene, settle frame, hook text. Default on. Audio stays at frame 0:
 
 ## Verification
 - Framework/version, source checks, seek samples and motion-sensitive interval:

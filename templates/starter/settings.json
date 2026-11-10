@@ -6,7 +6,7 @@
   "previewMaxBytes": 1000000,
   "audio": null,
   "scenes": [
-    {"id": "scene-01-sweep", "frames": 30},
-    {"id": "scene-02-orbit", "frames": 30}
+    {"id": "scene-01-sweep", "frames": 30, "role": "title", "hero": true, "hook": "Seek any frame.", "settleFrame": 18},
+    {"id": "scene-02-orbit", "frames": 30, "role": "feature", "hook": "Same time. Same pixels.", "settleFrame": 12}
   ]
 }

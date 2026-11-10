@@ -9,7 +9,7 @@
     "lint": "hyperframes lint .build",
     "check": "hyperframes check .build",
     "seek-check": "node scripts/seek-check.mjs",
-    "stills": "hyperframes snapshot .build --at 0.3,1.3 --no-end --output previews/keyframes",
+    "stills": "hyperframes snapshot .build --at 0,0.8,1.3 --no-end --output previews/keyframes",
     "render": "node scripts/render-safe.mjs",
     "verify": "node scripts/verify.mjs"
   },

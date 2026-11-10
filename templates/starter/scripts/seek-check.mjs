@@ -5,6 +5,7 @@ import http from 'node:http';
 import assert from 'node:assert/strict';
 import {createHash} from 'node:crypto';
 import puppeteer from 'puppeteer-core';
+import {selectMoneyShot} from '../shared/money-shot.js';
 import {root, settings, frames} from './common.mjs';
 
 process.chdir(root);
@@ -48,7 +49,9 @@ try {
   const errors = [];
   page.on('pageerror', error => errors.push(error.message));
   await page.goto(`http://127.0.0.1:${server.address().port}`, {waitUntil: 'load'});
-  const sampleFrames = new Set([0, frames - 1]);
+  const shot = selectMoneyShot(settings);
+  const firstLive = shot.enabled ? (shot.coldOpen ? Math.max(shot.holdFrames, shot.openingSettle) : shot.openingSettle) : 0;
+  const sampleFrames = new Set([0, frames - 1, firstLive, Math.min(frames - 1, firstLive + 5)]);
   let start = 0;
   for (const s of settings.scenes) {
     sampleFrames.add(start + Math.floor(s.frames / 2));
@@ -66,10 +69,18 @@ try {
   // Fixed permutation, with every sample once and no render-time randomness.
   const shuffled = [...samples.filter((_, i) => i % 2), ...samples.filter((_, i) => !(i % 2))];
   for (const frame of shuffled) assert.equal(await capture(frame), hashes.get(frame), `Shuffled seek changed frame ${frame}`);
-  assert.notEqual(await capture(0), await capture(Math.min(5, settings.scenes[0].frames - 1)), 'Known calibration motion is frozen; choose an animated interval after adapting the project');
+  const motionTo = Math.min(frames - 1, firstLive + Math.min(5, Math.max(1, settings.scenes[0].frames - 1)));
+  assert.notEqual(hashes.get(firstLive), hashes.get(motionTo), 'Known motion is frozen after the money-shot hold; choose an animated interval after adapting the project');
+  if (shot.enabled && !shot.coldOpen && shot.openingSettle > 0) {
+    assert.equal(hashes.get(0), hashes.get(shot.openingSettle), 'Frame 0 is not the settled hero');
+  }
+  const rendered = await page.evaluate(() => Film.test.moneyShot);
+  assert.equal(rendered.shiftsAudio, false);
+  assert.equal(rendered.insertedFrames, 0);
+  assert.equal(rendered.audioStart, 0);
   assert.deepEqual(errors, []);
   fs.mkdirSync('out', {recursive: true});
-  fs.writeFileSync('out/seek-check.json', JSON.stringify({samples, reverseMatches: samples.length, shuffledMatches: samples.length, motionChanged: true, pageErrors: errors, browser: await browser.version()}, null, 2));
+  fs.writeFileSync('out/seek-check.json', JSON.stringify({samples, reverseMatches: samples.length, shuffledMatches: samples.length, motionChanged: true, moneyShot: rendered, pageErrors: errors, browser: await browser.version()}, null, 2));
   console.log(`PASS: ${samples.length} reverse + shuffled exact-pixel matches, cut boundaries, motion sensitivity, no page errors.`);
 } finally {
   if (browser) await browser.close();

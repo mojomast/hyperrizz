@@ -40,6 +40,19 @@ For a short multi-scene promo requesting variety, a useful planning target is
 at least three distinct composition types and three meaningful motion families.
 This is a design aid, not a reason to cram effects into a quiet film.
 
+## The money shot is frame 0
+
+Design the thumbnail before the entrance. Frame 0 has to work as a still: hero
+motif fully revealed, title or hook readable, at full brightness. Pick that
+moment with `"hero": true` or let role and weight choose it, then set `settleFrame`
+to the local frame where the entrance has finished. The picture holds there from
+the start of the export. Playback then continues on the real clock.
+
+A fade up from black, an empty first frame, or a title that is still drawing is
+not an opening. Audio entrance fades stay inside the picture; they do not move
+the soundtrack later to make room for the hold. Sign-offs and textless plates are
+weak thumbnails. The hook scene is the one that should win.
+
 ## Match effect to meaning
 
 | Story beat | Useful effect | Failure mode |

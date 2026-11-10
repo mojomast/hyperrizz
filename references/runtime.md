@@ -82,6 +82,21 @@ Do not run an independent RAF, CSS animation clock, media `play()` loop or timer
 Keep text in DOM/SVG when independent Studio edits or DOM accessibility/contrast
 checks matter; a canvas is not automatically editable as individual text layers.
 
+## Money shot
+
+The picture clock and the composition clock are separate for the opening hold.
+`selectMoneyShot` reads `settings.scenes`: an explicit `hero: true` wins, otherwise
+role and weight score the thumbnail. `pictureForFrame` then draws the settled
+local frame during the hold. Output frame numbers, scene durations and the audio
+element's `data-start="0"` stay put. A cold open is an overlay of a later scene's
+settled picture for a short prefix of scene 0; it does not insert frames.
+
+Build injects `window.__HYPERRIZZ_MONEY_SHOT__="0"` only when the switch is off,
+so the browser bundle matches the Node plan. Write `.build/money-shot.json` with
+that plan. Seek tests must sample motion after the hold: frames inside the hold
+are the same settled picture on purpose. Compare frame 0 with the settle frame
+when the treatment itself does not change pixels every frame.
+
 ## Determinism test
 
 Expose a test hook calling the **same renderer** used by the frame source. Hash
@@ -130,6 +145,7 @@ interruption, inspect files/status before resending patches or duplicating rende
 | Resource spike despite two workers | Internal encoder threads / duplicate browser jobs |
 | Link works but old visuals | Stills/build newer than published MP4; rerender and verify |
 | Check says no contrast problems | Canvas has zero audited text elements |
+| Thumbnail is black, blank, or mid-fade | Money shot off, `settleFrame` before the hero is finished, or frame 0 was not inspected on the encoded file |
 
 Keep the first actionable failure; the final “render failed” line alone is not
 diagnostic. Use `doctor`, lint, local CLI help and the version-matched docs.
