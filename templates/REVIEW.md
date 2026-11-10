@@ -15,6 +15,7 @@ State final / draft / design proof and any missing production inputs.
 | Reverse/shuffled seeks + motion check | | |
 | Source/claim/timing assertions | | |
 | Encoded full decode | | |
+| Frame 0 money shot | | mean luma, luma stdev, hero/title |
 | Encoded loudness/true peak, if audio | | |
 | Preview/combined budget | | |
 

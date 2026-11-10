@@ -1,6 +1,10 @@
 # Hyperrizz for Hermes
 
-**Version 2.0.1 · agent-led production + native live review + optional full Studio.**
+**Version 2.1.0 · agent-led production + native live review + optional full Studio.**
+
+Delivered MP4s open on a money shot: frame 0 is the finished hero at full brightness,
+with the title or hook readable. Verification extracts that frame and rejects a
+near-black or blank opening. Audio stays on the composition clock.
 
 ## What ships
 

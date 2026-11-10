@@ -3,7 +3,7 @@ name: Hyperrizz
 description: Create, restyle, debug, render, or verify HyperFrames videos, product promos, release films, motion graphics, and audiovisual presentations. Use for end-to-end HyperFrames production, distinctive art direction, real UI/media integration, deterministic animation, sound, encoded-media QA, and delivery. Also use when resuming an interrupted HyperFrames production.
 license: MIT
 metadata:
-  version: "2.0.1"
+  version: "2.1.0"
 ---
 
 # Hyperrizz
@@ -91,6 +91,28 @@ Write a compact `STYLE.md` and shot table using the brief template. Establish:
 - Motion verbs and transitions specific to this film.
 - A narrative arc: hook → promise → evidence → escalation → memorable close.
 - A deliberate sound/motion relationship and a readable end-card hold.
+- A money shot: the finished hero, fully revealed, at full brightness.
+
+## Money shot
+
+Frame 0 of the delivered video is the thumbnail and preview on X, Discord, GitHub
+and social feeds. It is the most visually striking finished frame: the hero is
+fully revealed and the title or hook is readable. Open on that frame. A black
+frame, a fade-in, a blank, or a half-built entrance is a failed delivery.
+
+Mark the shot in `settings.json`. `"hero": true` wins. Otherwise the strongest
+scene wins by role and weight (`title` and `hero` above feature, proof, list and
+code; `signoff` / `outro` and textless media rank lower; an exact tie keeps the
+earlier scene). Set `settleFrame` or `settle` (seconds) to the local frame where
+that shot already looks finished. The runtime draws that settled picture from
+output frame 0 and holds it until the composition clock arrives. A later hero is
+a short picture-only cold open, at most 1.5 seconds, and never the whole opening.
+
+The soundtrack, narration and scene durations stay on the compiled clock. Do not
+delay audio, insert frames, or change the export length to make the thumbnail.
+`moneyShot: false`, or `HYPERRIZZ_MONEY_SHOT=0` (`false`, `off`, or `no`), turns
+the hold off. `moneyShot: true` forces it on. Omitting it leaves the default on.
+Set `settleFrame` to `0` only when the authored first frame is already that hero.
 
 For a request for **unique / varied effects**, map effect families to story beats.
 Vary composition, scale, rhythm and the way information is revealed. Nine scenes
@@ -156,7 +178,8 @@ Run the smallest complete chain that establishes the requested deliverable:
 2. Exact-time stills, full-resolution/preview-size review and cut-boundary review.
 3. Seek determinism, motion/effect controls, source/copy/timing assertions.
 4. One bounded render, followed by preview encode.
-5. Encoded-file probe, full decode, frame/duration checks, audio checks and budgets.
+5. Encoded-file probe, full decode, frame/duration checks, audio checks, budgets,
+   and the frame-0 money-shot check (extract frame 0; reject near-black and blank).
 6. Inspect frames from the actual MP4; watch the export and audition audio when
    playback capabilities exist. Record unperformed listening/realtime review.
 

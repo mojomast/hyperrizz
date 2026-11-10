@@ -39,7 +39,17 @@ viewer cannot find the project; include the required repository/site/maker detai
 Use the starter's `scripts/verify-media.py --help`. It supports expected dimensions,
 FPS, duration, audio policy, byte budget and optional LUFS/true-peak assertions.
 It counts decoded video frames, runs a full decode and records the file checksum.
-It does not judge visuals, provenance, dynamics, pronunciation or perceived quality.
+It does not judge taste, provenance, dynamics, pronunciation or perceived quality.
+
+By default it also extracts frame 0, scales it to 160 pixels wide, and measures
+luma. Mean luma at or below 16 fails as near-black. Luma standard deviation below
+8 fails as a blank frame with no readable hero or title. `--min-luma` and
+`--min-luma-stdev` override those floors. `--money-shot off` skips the check when
+the film sets `moneyShot: false` or `HYPERRIZZ_MONEY_SHOT=0|false|off|no`. A
+passing measurement shows the opening is not black or empty. It does not replace
+looking at the still to confirm the right hero and a readable hook. The starter's
+`verify()` passes `--money-shot off` only when that switch is off, so a normal
+`npm run render` / `npm run verify` enforces the thumbnail.
 
 Frame duration is quantized: `round(seconds * fps) / fps`. The EOH 112.318s edit
 yielded 3,370 frames / 112.333333s at 30fps. AAC packet padding can make the container

@@ -10,7 +10,7 @@
 <p align="center">
   <a href="https://github.com/mojomast/hyperrizz/actions/workflows/check.yml"><img src="https://github.com/mojomast/hyperrizz/actions/workflows/check.yml/badge.svg" alt="Package and verifier checks"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-D8F36A?style=flat-square&labelColor=171923" alt="MIT license"></a>
-  <a href="docs/HERMES_PLUGIN.md"><img src="https://img.shields.io/badge/Hermes-plugin_2.0.1-E8B968?style=flat-square&labelColor=171923" alt="Hermes plugin 2.0.1"></a>
+  <a href="docs/HERMES_PLUGIN.md"><img src="https://img.shields.io/badge/Hermes-plugin_2.1.0-E8B968?style=flat-square&labelColor=171923" alt="Hermes plugin 2.1.0"></a>
   <a href="https://hyperframes.heygen.com"><img src="https://img.shields.io/badge/starter-HyperFrames_0.9.23-B5A2FF?style=flat-square&labelColor=171923" alt="Starter pinned to HyperFrames 0.9.23"></a>
   <a href="https://opencode.ai/v2/docs/skills"><img src="https://img.shields.io/badge/agent-OpenCode_V2-FF9474?style=flat-square&labelColor=171923" alt="OpenCode V2 skill"></a>
 </p>
@@ -211,12 +211,16 @@ constraints     motion grammar   picture + sound    actual encode   source + rep
 - **Canvas needs human eyes.** Zero DOM text checks do not certify canvas legibility.
 - **The MP4 is the deliverable.** Refreshed stills do not update an old export, and
   a silent proof is still a proof.
+- **Frame 0 is the thumbnail.** The export opens on a finished hero at full
+  brightness, with the title or hook readable. It does not fade up from black.
+  The soundtrack stays on the composition clock. See [CHANGELOG](CHANGELOG.md).
 
 ## Inside the skill
 
 | File | Purpose |
 | --- | --- |
 | [`SKILL.md`](SKILL.md) | The end-to-end production workflow loaded by the agent |
+| [`CHANGELOG.md`](CHANGELOG.md) | Release notes, including the money-shot opening |
 | [`art-direction.md`](references/art-direction.md) | Identity, editorial variety, typography and meaningful motion |
 | [`runtime.md`](references/runtime.md) | Frame sources, time semantics, determinism and resource limits |
 | [`media-audio.md`](references/media-audio.md) | Capture provenance, sharpness, musical phase and mastering |
@@ -266,7 +270,7 @@ project, rather than inside an installed skill.
 | --- | --- |
 | `out/master.mp4` | 640×360 · 30 fps · 60 frames · 2 seconds · silent |
 | `previews/preview.mp4` | 320×180 H.264 review copy |
-| `previews/keyframes/` | Two scene frames and a contact sheet |
+| `previews/keyframes/` | Money-shot frame 0, a frame after the hold, the second scene, and a contact sheet |
 | `out/*verification.json` | Decode, dimensions, timing, size and checksum results |
 | `out/seek-check.json` | Reverse/shuffled seek and motion-sensitivity evidence |
 
@@ -298,8 +302,11 @@ python3 templates/starter/scripts/verify-media.py /path/to/master.mp4 \
 
 Set the expected values for your film. Use `--audio forbidden` for a deliberate
 silent proof and `--max-bytes` for a strict file budget. Failed assertions return a
-nonzero exit status. Verification establishes the encoded properties; it does not
-judge the film's taste, factual claims or perceived sound quality.
+nonzero exit status. Verification extracts frame 0 and rejects a near-black or blank
+opening (mean luma at or below 16, or luma standard deviation below 8). Pass
+`--money-shot off` only when the film itself disables the money shot. Verification
+establishes the encoded properties; it does not judge the film's taste, factual
+claims or perceived sound quality.
 
 ## Go deeper: the broadcast lab
 
@@ -353,7 +360,7 @@ The bundled starter has been built and rendered with **HyperFrames 0.9.23**:
 - **8 reverse + 8 shuffled exact-pixel matches**, plus a motion-sensitive check.
 - Master and preview fully decoded and checked for frame count, duration and size.
 - Occupied project/shared locks rejected rendering and preserved the existing file.
-- **7 real-FFmpeg regression tests** covering valid media and failure cases.
+- **8 real-FFmpeg regression tests** covering valid media, failure cases, and a near-black or blank frame 0.
 
 The CI badge covers package integrity and verifier regression tests. The full
 browser/render smoke test is documented separately in [VALIDATION.md](VALIDATION.md),

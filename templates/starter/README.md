@@ -31,6 +31,15 @@ Always rebuild after editing source before using that freshness check. The build
 fingerprint describes the generated composition; it cannot detect unbuilt edits.
 Do not edit/rebuild while a render is using that composition.
 
+Frame 0 is the money shot. The opening scene is marked `"hero": true` and held at
+`settleFrame` 18, where the title is already on screen and the calibration square
+sits in a finished position. Frames after that hold continue the real motion.
+The check compares those later frames, and it expects frame 0 to match the settle
+frame. Audio, when you add it, stays at `data-start="0"`. Set `moneyShot` to
+`false`, or export `HYPERRIZZ_MONEY_SHOT=0` (`false`, `off`, or `no`) before
+build, to keep the authored first frame instead. `moneyShot: true` forces the hold
+on. The verifier measures frame 0 unless that switch is off.
+
 The silent clip produces an expected no-audio informational notice in checks. For a film
 with sound, put the finished WAV in `assets/` and set `settings.audio` to its relative
 path (e.g. `assets/master.wav`). The generated timed audio element has a stable ID.
@@ -64,7 +73,10 @@ python3 scripts/verify-media.py out/master.mp4 \
 
 Use the expected values for the actual film. `--audio forbidden` is explicit for
 silent work; `--audio optional` relaxes presence, not requested loudness constraints.
-`--max-bytes` checks the actual output. Full decode failure or an unmet assertion
+`--max-bytes` checks the actual output. Frame 0 is checked for a finished opening:
+mean luma must be above 16 and luma standard deviation at least 8, so a near-black
+or blank thumbnail fails. `--money-shot off` skips that check. `--min-luma` and
+`--min-luma-stdev` change the floors. Full decode failure or an unmet assertion
 returns nonzero. This script does not claim perceptual or product-behavior review.
 
 ## Locks and cleanup

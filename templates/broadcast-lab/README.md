@@ -32,7 +32,7 @@ production; this diagnostic lab deliberately uses the starter's draft encoder.
 
 | Film time | Treatment |
 | --- | --- |
-| 0–4s | Test bars, opening ident, step-revealed labels, full-frame CRT/VHS |
+| 0–4s | Finished ident from frame 0 (title, rule, all three labels), then the live cut; full-frame CRT/VHS. Soundtrack stays on the clock |
 | 4–8s | Tuning burst, mirrored pixel character, back/head/front layers, native frame anchors, ticker |
 | 8–12s | Cached synthetic video: 1× playback, then ¼-speed replay from a separate source inpoint; telestrator |
 | 12–16s | Dressed character lineup, perspective rules, repo CTA, CRT line/dot power-off |
@@ -44,6 +44,11 @@ MIT attribution are in `broadcast/NOTICE.md` and `broadcast/LICENSE`.
 
 ## Controls and time maps
 
+- Money shot: `scene-signal` is `"hero": true` and `settleFrame` is 108 (1.8s),
+  when the ident, rule and all three labels are already on screen. Frame 0 holds
+  that picture. CRT and the soundtrack keep the real output clock, so audio is
+  not delayed and the export stays 960 frames. `moneyShot: false` or
+  `HYPERRIZZ_MONEY_SHOT=0` restores the step-reveal from an empty rule.
 - `settings.effectIntensity`: 0 removes CRT/VHS wear; 0.7 is the authored treatment;
   1 strengthens it. Tuning and power-off are separate editorial controls.
 - `settings.seed`: stable stateless noise seed. Noise uses the output frame index.

@@ -1,5 +1,30 @@
 # Hyperrizz validation — 2026-11-08
 
+## Money shot · v2.1.0
+
+Frame 0 of a default export is the settled hero. Selection, the picture hold,
+the cold open and the audio-clock invariant are covered by `tests/money-shot.test.mjs`.
+`tests/test_verifier.py` is **8/8**: it rejects a near-black frame 0 and a flat
+frame, and it accepts a cream-on-ink title card. `--money-shot off` accepts an
+intentional black opening.
+
+Measured from a copy of the starter, HyperFrames **0.9.23**, 2026-11-10:
+
+- Seek check: **10 reverse + 10 shuffled** exact matches. Frame 0 matches the
+  settle frame. Motion after the hold changes pixels.
+- Silent master: **640×360 / 30fps / 60 frames / 2.000s**. Frame 0 mean luma
+  **28.9**, luma stdev **33.5** (limits 16 and 8). Encoded frames 0, 5 and 18
+  match; frame 23 has moved. The hook “Seek any frame.” is on screen and the
+  amber square is at the settled position.
+- The same edit with a tone that starts at sample 0: video and audio
+  `start_time` **0.000**, both durations **2.000s**, still 60 frames. RMS in the
+  first 50ms matches RMS at 600ms, so the hold did not delay the soundtrack.
+- Broadcast lab effect check: **21 reverse + 21 shuffled** matches. Frame 0 is
+  `scene-signal` at local frame **108**, with the finished ident line present.
+  `shiftsAudio` is false and `insertedFrames` is 0. The 16s lab was not
+  re-encoded for this note; the picture decision was checked in the same renderer
+  the export uses.
+
 ## Hermes plugin · v2.0.1
 
 The plugin report is [docs/HERMES_PLUGIN.md](docs/HERMES_PLUGIN.md), with

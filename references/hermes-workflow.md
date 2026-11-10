@@ -25,8 +25,8 @@ full production skill, including the advanced Hermagotchi-derived machinery.
    and then resolve each addressed note. The note's revision may be older than the
    current source; reconcile rather than blindly replaying an old edit.
 7. For delivery, `hyperrizz_produce(op="render")` runs framework/seek checks, the
-   bounded render wrapper and encoded-media verification. Read its terminal job
-   result and return the verified path. A user asking for a complete film need not
+   bounded render wrapper and encoded-media verification, including the frame-0
+   money-shot check. Read its terminal job result and return the verified path. A user asking for a complete film need not
    click an approval button. A user asking for review-only should get a live preview.
 
 Do not ask the user to install npm dependencies, start servers or render frames

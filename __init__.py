@@ -22,7 +22,7 @@ SCHEMAS = [
            ["open", "notes", "note", "resolve", "editor", "checkpoint", "close_editor"], {
                "session_id": {"type": "string"}, "frame": {"type": "integer"}, "revision": {"type": "integer"},
                "text": {"type": "string"}, "note_id": {"type": "string"}}),
-    schema("hyperrizz_produce", "Start build/check/render jobs; inspect progress or cancel. Render verifies candidates before publishing. Build after source edits.",
+    schema("hyperrizz_produce", "Start build/check/render jobs; inspect progress or cancel. Render verifies candidates, including a non-blank opening frame, before publishing. Build after source edits.",
            ["build", "check", "render", "job", "cancel"], {"job": {"type": "string"}}),
 ]
 
